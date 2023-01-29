@@ -5,10 +5,10 @@
 #include "peripheral.hpp"
 #include "rtos_tasks.hpp"
 
-#define AP_SSID "Altair"
-#define AP_PASS "PtS4LzLxjpepE4w67N"
-#define UDP_CLIENT_PORT 9919
-#define LED_BUILTIN 33
+const char* AP_SSID = "Altair";
+const char* AP_PASS = "PtS4LzLxjpepE4w67N";
+const int UDP_CLIENT_PORT = 9919;
+int LED_BUILTIN = 33;
 
 
 void setup() {
@@ -18,9 +18,9 @@ void setup() {
   init_wifi(AP_SSID, AP_PASS, false);
 
   Command cmd_server(UDP_CLIENT_PORT);
-  create_command_task(cmd_server, 16384, 2, ARDUINO_RUNNING_CORE);
+  create_command_task(cmd_server, 131072, 1, ARDUINO_RUNNING_CORE);
 
-  create_lights_task(LED_BUILTIN, 1024, 2, ARDUINO_RUNNING_CORE);
+  create_lights_task(&LED_BUILTIN, 2048, 1, ARDUINO_RUNNING_CORE);
 }
 
 void loop() {

@@ -18,6 +18,7 @@ void Command::server_loop(void* parameters)
   char packet_buffer[255];
   while (true)
   {
+    //int packetSize = false;
     int packetSize = udp_server->parsePacket();
     if (packetSize)
     {

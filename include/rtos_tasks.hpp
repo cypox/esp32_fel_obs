@@ -6,4 +6,4 @@
 
 void create_command_task(Command&, int, int, int);
 
-void create_lights_task(int, int, int, int);
+void create_lights_task(int*, int, int, int);
