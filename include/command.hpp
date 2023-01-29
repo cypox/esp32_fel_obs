@@ -1,15 +1,16 @@
 #pragma once
 
-#include <WiFi.h>
-#include <WiFiUdp.h>
+#include <Arduino.h>
+#include <Udp.h>
 
 
 class Command {
 public:
-  Command(int);
+  Command(IPAddress, uint16_t);
   static void server_loop(void*);
-  WiFiUDP* get_server_address();
+
+  int get_udp_socket() const;
 
 private:
-  WiFiUDP _udp_server;
+  int udp_server;
 };

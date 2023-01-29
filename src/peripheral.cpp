@@ -5,6 +5,8 @@ void main_lights_task(void *parameters)
 {
   int led_pin = *((int*)parameters);
 
+  Serial.printf("Main light on pin %d\n", led_pin);
+
   pinMode(led_pin, OUTPUT);
 
   for (;;)
