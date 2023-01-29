@@ -16,9 +16,9 @@ void Command::server_loop(void* parameters)
 {
   WiFiUDP* udp_server = (WiFiUDP*)parameters;
   char packet_buffer[255];
+
   while (true)
   {
-    //int packetSize = false;
     int packetSize = udp_server->parsePacket();
     if (packetSize)
     {
